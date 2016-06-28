@@ -29,7 +29,9 @@ Example:
 
     public function prepareQuery()
     {
-        $this->scope['owner_name'] = 'users.name';
+        $this->setScope([
+            'owner_name' => 'users.name'
+        ]);
 
         return $this->model
             ->leftJoin('users', 'books.owner_id', '=', 'users.id')
