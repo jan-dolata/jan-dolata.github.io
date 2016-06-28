@@ -41,6 +41,17 @@
             );
         };
 
+        function loadPage(files)
+        {
+            var file = files[0];
+            files.shift();
+            jQuery.get('/wiki/' + file.name + '.md', function(data) {
+                addPage(file.name, file.label, data);
+                if (files.length)
+                    loadPage(files);
+            });
+        };
+
         var files = [
             {
                 name: 'install',
@@ -51,17 +62,6 @@
                 label: 'Pola formularza'
             },
         ];
-
-        function loadPage(files)
-        {
-            var file = files[0];
-            files.shift();
-            jQuery.get('/wiki/' + file.name + '.md', function(data) {
-                addPage(file.name, file.label, data);
-                if (files.length)
-                    loadPage(files);
-            });
-        },
 
         loadPage();
 
