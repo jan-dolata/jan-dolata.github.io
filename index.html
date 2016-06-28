@@ -31,7 +31,7 @@
             var content = md.render(text);
             $('#content').append(
                 '<a role="button" data-toggle="collapse" ' +
-                    ' href="#' + name + '" aria-expanded="false" aria-controls="' + name + '">' +
+                    'href="#' + name + '" aria-expanded="false" aria-controls="' + name + '">' +
                         label +
                     '</a>' +
                 '<div class="collapse" id="' + name + '">' +
@@ -41,13 +41,29 @@
             );
         };
 
-        jQuery.get('/wiki/install.md', function(data) {
-            addPage('install', 'Instalacja', data);
-        });
+        var files = [
+            {
+                name: 'install',
+                label: 'Instalacja'
+            },
+            {
+                name: 'input',
+                label: 'Pola formularza'
+            },
+        ];
 
-        jQuery.get('/wiki/input.md', function(data) {
-            addPage('input', 'Pola formularza', data);
-        });
+        function loadPage(files)
+        {
+            var file = files[0];
+            files.shift();
+            jQuery.get('/wiki/' + file.name + '.md', function(data) {
+                addPage(file.name, file.label, data);
+                if (files.length)
+                    loadPage(files);
+            });
+        },
+
+        loadPage();
 
     </script>
 </body>
