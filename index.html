@@ -27,10 +27,10 @@
     <script>
         var md = window.markdownit();
 
-        function addPage (text) {
+        function addPage (id, text) {
             var content = md.render(text);
             $('#content').html(
-                '<a class="btn btn-primary" role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' +
+                '<a class="btn btn-primary" role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' + input + '</a>' +
                 '<div class="collapse" id="' + id + '">' +
                     content +
                 '</div>'
@@ -38,7 +38,7 @@
         };
 
         jQuery.get('/wiki/input.md', function(data) {
-            addPage(data);
+            addPage('input', data);
         });
 
     </script>
