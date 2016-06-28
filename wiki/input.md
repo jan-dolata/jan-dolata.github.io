@@ -8,8 +8,9 @@
 * datetime - wykorzystane bootstrap-datetimepicker
 * autocomplete - wykorzystane jquery-ui
 * select
+* markdown - wykorystuje markdown-it
 
-### Usage
+### Zmiana typu pola
 
 Aby zmienić typ użyj `$this->crudeSetup->setTypes()` w `__construct` klasy crude
 
