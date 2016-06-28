@@ -27,19 +27,31 @@
     <script>
         var md = window.markdownit();
 
-        function addPage (id, text) {
+        function addPage (id, label, text) {
             var content = md.render(text);
             $('#content').html(
-                '<a class="btn btn-primary" role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' + id + '</a>' +
+                '<a role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' + label + '</a>' +
                 '<div class="collapse" id="' + id + '">' +
                     content +
                 '</div>'
             );
         };
 
-        jQuery.get('/wiki/input.md', function(data) {
-            addPage('input', data);
-        });
+        var files = [
+            {
+                url: '/wiki/input.md',
+                id: 'input',
+                lable: 'Pola formularza'
+            }
+        ];
+
+        for(var i in files) {
+            var file = files[i];
+
+            jQuery.get(file.url, function(data) {
+                addPage(file.id, file.label, data);
+            });
+        }
 
     </script>
 </body>
