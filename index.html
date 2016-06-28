@@ -8,21 +8,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+    <script src="node_modules/markdown/lib/markdown.js"></script>
+
 </head>
 
 <body>
-    <h1>CrudeCRUD</h1>
 
-    <pre>
-        $ composer require jan-dolata/crude-crud
-    </pre>
+    <div class="container">
+        <h1>CrudeCRUD</h1>
+        <hr>
 
+        <div id="content"></div>
+    </div>
+
+    <script>
+        function addPage (md) {
+            $('#content').html(markdown.toHTML(md));
+        };
+
+        jQuery.get('/wiki/input.md', function(data) {
+            alert(data);
+        });
+
+    </script>
 </body>
 
 </html>
