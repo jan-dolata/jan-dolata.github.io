@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/markdown-it/dist/markdown-it.min.js"></script>
 </head>
 
@@ -28,7 +28,13 @@
         var md = window.markdownit();
 
         function addPage (text) {
-            $('#content').html(md.render(text));
+            var content = md.render(text);
+            $('#content').html(
+                '<a class="btn btn-primary" role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' +
+                '<div class="collapse" id="' + id + '">' +
+                    content +
+                '</div>'
+            );
         };
 
         jQuery.get('/wiki/input.md', function(data) {
