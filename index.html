@@ -29,7 +29,7 @@
 
         function addPage (name, label, text) {
             var content = md.render(text);
-            $('#content').html(
+            $('#content')append(
                 '<a role="button" data-toggle="collapse" ' +
                     ' href="#' + name + '" aria-expanded="false" aria-controls="' + name + '">' +
                         label +
@@ -51,7 +51,7 @@
             },
         ];
 
-        for(var i in files) {
+        for (var i in files) {
             var file = files[i];
 
             jQuery.get('/wiki/' + file.name + '.md', function(data) {
