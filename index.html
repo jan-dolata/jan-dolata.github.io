@@ -30,7 +30,7 @@
         function addPage (id, text) {
             var content = md.render(text);
             $('#content').html(
-                '<a class="btn btn-primary" role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' + input + '</a>' +
+                '<a class="btn btn-primary" role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' + id + '</a>' +
                 '<div class="collapse" id="' + id + '">' +
                     content +
                 '</div>'
