@@ -41,24 +41,13 @@
             );
         };
 
-        var files = [
-            {
-                name: 'install',
-                label: 'Instalacja'
-            },
-            {
-                name: 'input',
-                label: 'Pola formularza'
-            },
-        ];
+        jQuery.get('/wiki/install.md', function(data) {
+            addPage('install', 'Instalacja', data);
+        });
 
-        for (var i in files) {
-            var file = files[i];
-
-            jQuery.get('/wiki/' + file.name + '.md', function(data) {
-                addPage(file.name, file.label, data);
-            });
-        }
+        jQuery.get('/wiki/input.md', function(data) {
+            addPage('input', 'Pola formularza', data);
+        });
 
     </script>
 </body>
