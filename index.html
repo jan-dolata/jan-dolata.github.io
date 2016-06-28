@@ -27,11 +27,14 @@
     <script>
         var md = window.markdownit();
 
-        function addPage (id, label, text) {
+        function addPage (name, label, text) {
             var content = md.render(text);
             $('#content').html(
-                '<a role="button" data-toggle="collapse" href="#' + id + '" aria-expanded="false" aria-controls="' + id + '">' + label + '</a>' +
-                '<div class="collapse" id="' + id + '">' +
+                '<a role="button" data-toggle="collapse" ' +
+                    ' href="#' + name + '" aria-expanded="false" aria-controls="' + name + '">' +
+                        label +
+                    '</a>' +
+                '<div class="collapse" id="' + name + '">' +
                     content +
                 '</div>'
             );
@@ -39,17 +42,20 @@
 
         var files = [
             {
-                url: '/wiki/input.md',
-                id: 'input',
-                lable: 'Pola formularza'
-            }
+                name: 'install',
+                label: 'Instalacja'
+            },
+            {
+                name: 'input',
+                label: 'Pola formularza'
+            },
         ];
 
         for(var i in files) {
             var file = files[i];
 
-            jQuery.get(file.url, function(data) {
-                addPage(file.id, file.label, data);
+            jQuery.get('/wiki/' + file.name + '.md', function(data) {
+                addPage(file.name, file.label, data);
             });
         }
 

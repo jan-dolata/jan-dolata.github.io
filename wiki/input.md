@@ -1,31 +1,25 @@
 # Inputs
 
-[Readme](../README.md)
+## Dostępne typy pól
 
-## Table of content
-- [Types](#types)
-- [Usage](#usage)
-
-## Types
-
-* text - default
+* text - domyślne
 * number
 * textarea
-* info - text input with 'readonly'
+* info - pole z atrybutem 'readonly'
 * checkbox
-* datetime - powered by bootstrap-datetimepicker
-* autocomplete - powered by jquery-ui
+* datetime - wykorzystane bootstrap-datetimepicker
+* autocomplete - wykorzystane jquery-ui
 * select
 
 ## Usage
 
-To change input type use `$this->crudeSetup->setTypes()` in crude `__construct`
+Aby zmienić typ użyj `$this->crudeSetup->setTypes()` w `__construct` klasy crude
 
 ```
 $this->crudeSetup->setTypes('first_name', 'text');
 ```
 
-or
+lub
 
 ```
 $this->crudeSetup->setTypes([
@@ -36,13 +30,13 @@ $this->crudeSetup->setTypes([
 ]);
 ```
 
-or
+lub
 
 ```
 $this->crudeSetup->setTypesGroup('text', ['first_name', 'last_name']);
 ```
 
-or
+lub
 
 ```
 $this->crudeSetup->setTypesGroup([
@@ -51,7 +45,7 @@ $this->crudeSetup->setTypesGroup([
 ]);
 ```
 
-For select add options
+Dla pola typu `select` dodaj opcje
 
 ```
 $this->crudeSetup
@@ -65,7 +59,7 @@ $this->crudeSetup
     );
 ```
 
-or
+lub
 
 ```
 $this->crudeSetup
@@ -78,7 +72,7 @@ $this->crudeSetup
     ]);
 ```
 
-For autocomplete add methods
+Dla pola typu `autocomplete` dodaj dwie metody
 
 ```
 public function autocompleteAttrName($term)
@@ -103,7 +97,7 @@ public function labelAttrName($id)
 }
 ```
 
-Example:
+Przykład:
 ```
 public function autocompleteBookId($term)
 {
@@ -126,3 +120,4 @@ public function labelAttrName($id)
     return empty($label) ? '' : $label;
 }
 ```
+
