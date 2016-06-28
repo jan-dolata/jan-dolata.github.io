@@ -1,6 +1,4 @@
-# Inputs
-
-## Dostępne typy pól
+### Dostępne typy pól
 
 * text - domyślne
 * number
@@ -11,7 +9,7 @@
 * autocomplete - wykorzystane jquery-ui
 * select
 
-## Usage
+### Usage
 
 Aby zmienić typ użyj `$this->crudeSetup->setTypes()` w `__construct` klasy crude
 

@@ -1,4 +1,4 @@
-# Instalacja
+### Instalacja
 
 Wykorzystując Composer
 
