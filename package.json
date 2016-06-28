@@ -5,7 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "jquery": "^3.0.0",
-    "markdown": "^0.5.0"
+    "markdown-it": "^7.0.0"
   },
   "scripts": {
     "version": "git add package.json",

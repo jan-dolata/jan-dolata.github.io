@@ -12,8 +12,7 @@
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
-    <script src="node_modules/markdown/lib/markdown.js"></script>
-
+    <script src="node_modules/markdown-it/dist/markdown-it.min.js"></script>
 </head>
 
 <body>
@@ -26,8 +25,10 @@
     </div>
 
     <script>
-        function addPage (md) {
-            $('#content').html(markdown.toHTML(md));
+        var md = window.markdownit();
+
+        function addPage (text) {
+            $('#content').html(md.render(text));
         };
 
         jQuery.get('/wiki/input.md', function(data) {

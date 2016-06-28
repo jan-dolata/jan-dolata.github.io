@@ -21,13 +21,13 @@
 
 To change input type use `$this->crudeSetup->setTypes()` in crude `__construct`
 
-```php
+```
 $this->crudeSetup->setTypes('first_name', 'text');
 ```
 
 or
 
-```php
+```
 $this->crudeSetup->setTypes([
     'last_name' => 'text',
     'points' => 'number',
@@ -38,13 +38,13 @@ $this->crudeSetup->setTypes([
 
 or
 
-```php
+```
 $this->crudeSetup->setTypesGroup('text', ['first_name', 'last_name']);
 ```
 
 or
 
-```php
+```
 $this->crudeSetup->setTypesGroup([
     'text' => ['first_name', 'last_name'],
     'number' => 'points'
@@ -53,7 +53,7 @@ $this->crudeSetup->setTypesGroup([
 
 For select add options
 
-```php
+```
 $this->crudeSetup
     ->setTypes('status', 'select')
     ->setSelectOptions(
@@ -67,7 +67,7 @@ $this->crudeSetup
 
 or
 
-```php
+```
 $this->crudeSetup
     ->setTypes('status', 'select')
     ->setSelectOptions([
@@ -80,7 +80,7 @@ $this->crudeSetup
 
 For autocomplete add methods
 
-```php
+```
 public function autocompleteAttrName($term)
 {
     return (new \App\ModelName)
@@ -104,7 +104,7 @@ public function labelAttrName($id)
 ```
 
 Example:
-```php
+```
 public function autocompleteBookId($term)
 {
     return (new \App\Book)
