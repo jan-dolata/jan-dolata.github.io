@@ -29,7 +29,7 @@
 
         function addPage (name, label, text) {
             var content = md.render(text);
-            $('#content')append(
+            $('#content').append(
                 '<a role="button" data-toggle="collapse" ' +
                     ' href="#' + name + '" aria-expanded="false" aria-controls="' + name + '">' +
                         label +
