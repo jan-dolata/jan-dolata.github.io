@@ -1,8 +1,5 @@
-# Crude setup
-
----
-
-## Column
+Column
+===
 
 Select which attributes are displayed in the list and in what order.
 
@@ -64,62 +61,3 @@ Example:
     $attr = $this->crudeSetup->getColumnAttr();
     // $attr = ['id', 'name', 'email']
 ```
-
-## Filters
-
-Filters attributes will fill list in search box under the table.
-After `prepareCrudeSetup()` when `FromModelTrait` is used, filters have `'id'` attribute. Also, filters in result of `getCrudeSetupData()` will contain all column attributes.
-
-Example:
-```php
-    $this->crudeSetup->resetFilters();
-    // current filters: []
-    $this->crudeSetup->setFilters('name');
-    // current filters: ['name']
-    $this->crudeSetup->setFilters(['email', 'phone']);
-    // current filters: ['email', 'phone']
-    $this->crudeSetup->setFilters(['email', 'phone', 'age', 'phone']);
-    // current filters: ['email', 'phone', 'age']
-    $this->crudeSetup->resetFilters(['id', 'name']);
-    // current filters: ['id', 'name']
-```
-
-## Trans
-
-Change default attribute names in `resources/lang/en/validation.php` files.
-
-Example:
-```php
-    'attributes' => [
-        'id' => 'ID',
-        'created_at' => 'Created at',
-        'updated_at' => 'Updated at',
-        ...
-    ]
-```
-
-or add custome attributes name
-
-```php
-    $this->crudeSetup
-        ->setTrans('id', 'ID')
-        ->setTrans([
-            'name' => 'First name',
-            'created_at' => 'Start date'
-        ]);
-```
-
-## Module in popup
-
-If you want to change the method of displaing forms to pop-ups use
-
-```php
-    $this->crudeSetup->usePopup()
-```
-
-or
-
-```php
-    $this->crudeSetup->setModuleInPopup(true)
-```
-

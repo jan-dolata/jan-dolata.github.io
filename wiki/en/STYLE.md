@@ -1,6 +1,5 @@
-# Style
-
----
+Style
+===
 
 ## scss
 

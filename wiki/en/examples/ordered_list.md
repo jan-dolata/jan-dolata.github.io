@@ -1,41 +1,5 @@
-# Ordered list
-
----
-
-## About
-
-This option allows you to manage the sequence of elements.
-
-Above the table displays a button that opens modal, in which using drag and drop, you can set the order of items.
-
-After store and delete model, all orders will be recalculate.
-
-## Usage
-
-First of all, class should implements `CrudeOrderInterface`.
-
-All methods are in `CrudeFromModelTrait`.
-
-The model must have a numeric attribute, to keep order.
-
-In class `__construct` place (after `$this->prepareCrudeSetup()`)
-
-```php
-$this->crudeSetup->useOrderedList('label_attribute_name', 'order_attribute_name', 'id_attribute_name');
-```
-
-Default values:
-* `id` for id attribute name,
-* `order` for order attribute name,
-* `name` for label attribute name.
-
-Also `useOrderedList()` will add `order` column in table (on first place).
-
-You can disable the option by calling `$this->crudeSetup->lockOrderOption()` (after `useOrderedList()`), or overwrite `permissionOrder($options)` method.
-
-Change new item place by calling `$this->storeInFirstPlace();` in class `__construct`.
-
-# Example
+Ordered list
+===
 
 Part of create books table migration
 
@@ -172,24 +136,24 @@ Result:
 
 List
 
-![/wiki/en/ordered_list/1.png](/wiki/en/ordered_list/1.png "List")
+![/wiki/en/examples/ordered_list/1.png](/wiki/en/examples/ordered_list/1.png "List")
 
 Order modal
 
-![/wiki/en/ordered_list/2.png](/wiki/en/ordered_list/2.png "Order modal")
+![/wiki/en/examples/ordered_list/2.png](/wiki/en/examples/ordered_list/2.png "Order modal")
 
 Change order
 
-![/wiki/en/ordered_list/3.png](/wiki/en/ordered_list/3.png "Change order")
+![/wiki/en/examples/ordered_list/3.png](/wiki/en/examples/ordered_list/3.png "Change order")
 
 After save
 
-![/wiki/en/ordered_list/4.png](/wiki/en/ordered_list/4.png "After save")
+![/wiki/en/examples/ordered_list/4.png](/wiki/en/examples/ordered_list/4.png "After save")
 
 While adding a new item
 
-![/wiki/en/ordered_list/5.png](/wiki/en/ordered_list/5.png "While adding a new item")
+![/wiki/en/examples/ordered_list/5.png](/wiki/en/examples/ordered_list/5.png "While adding a new item")
 
 After store
 
-![/wiki/en/ordered_list/6.png](/wiki/en/ordered_list/6.png "After store")
+![/wiki/en/examples/ordered_list/6.png](/wiki/en/examples/ordered_list/6.png "After store")

@@ -1,6 +1,5 @@
-# Inputs
-
----
+Inputs
+===
 
 ## Types
 
@@ -101,26 +100,3 @@ public function labelAttrName($id)
 }
 ```
 
-Example:
-```php
-public function autocompleteBookId($term)
-{
-    return (new \App\Book)
-        ->where('title', 'like', '%' . $term . '%')
-        ->select(
-            'id as id',
-            'title as label'
-        )
-        ->take(10)
-        ->get();
-}
-
-public function labelAttrName($id)
-{
-    $label = (new \App\Book)
-        ->where('id', $id)
-        ->value('title');
-
-    return empty($label) ? '' : $label;
-}
-```

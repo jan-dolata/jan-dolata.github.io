@@ -1,8 +1,5 @@
-# Tutorials
-
----
-
-## List with pre filtered collection example
+List with pre filtered collection
+===
 
 Database
 
@@ -54,7 +51,7 @@ App\Http\Controllers\Controller
 ```php
     public function bookAuthors($book_id = null)
     {
-        Session::put('crude.book_authors.book_id', $book_id);
+        \CrudeData::put('book_id', $book_id);
         return view('crude.start', [
             'crudeSetup' => [(new \App\Engine\Crude\BookAuthors)->getCrudeSetupData()]
         ]);
@@ -82,8 +79,7 @@ class BookAuthors extends \Crude implements
 
     public function __construct()
     {
-        if (Session::has('crude.book_authors.book_id'))
-            $this->book_id = Session::get('crude.book_authors.book_id');
+        $this->book_id = \CrudeData::get('book_id');
 
         $this->setModel(new \App\Engine\Models\BookAuthor);
 

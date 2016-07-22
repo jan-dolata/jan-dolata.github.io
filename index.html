@@ -1,0 +1,188 @@
+<!doctype html>
+<!--[if lte IE 7 ]><html lang="pl" class="ie ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="pl" class="ie ie8"><![endif]-->
+<!--[if !IE]>--><html lang="pl" class="modern"><!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="node_modules/js-markdown-extra/js-markdown-extra.js"></script>
+
+    <style>
+        body {
+            font-family: 'Lato';
+        }
+
+        h1 {
+            background-color: #66ABCC;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 20px;
+            border-radius: 2px;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: #66ABCC;
+            border-radius: 2px;
+        }
+
+        .content {
+            margin-left: 30%;
+            padding: 20px;
+            padding-right: 10%;
+        }
+
+        .section {
+            padding-top: 20px;
+        }
+
+        .sidenav {
+            width: 30%;
+
+            position: fixed;
+            overflow-y: scroll;
+
+            top: 20px;
+            bottom: 20px;
+
+            left: 0;
+            text-align: right;
+
+            padding-left: 10%;
+            padding-right: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-button {
+            background: #ddd
+        }
+        ::-webkit-scrollbar-track-piece {
+            background: #eee
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #66ABCC
+        }​
+    </style>
+</head>
+
+<body>
+    <div class="sidenav">
+        <h1>CrudeCRUD</h1>
+        <hr>
+        <div id="menu"></div>
+        <small>Jan Dolata for HolonGlobe</small>
+    </div>
+
+    <div id="content" class="content"></div>
+</body>
+
+<script type="text/javascript">
+    var md = window.markdownit();
+
+    var fill = function (dir, files, id, name) {
+        $('#menu').append('<strong>' + name + ':</strong><div id="menu_' + id + '"></div><hr>');
+        $('#content').append('<h2 style="margin-top: 60px">' + name + ':</h2><div id="content_' + id + '"></div>');
+
+        var $menu = $('#menu').find('#menu_' + id);
+        var $content = $('#content').find('#content_' + id);
+
+        for (var i in files) {
+            var url = dir + files[i] + '.md';
+
+            loadContent(url, id + '_' + files[i], $menu, $content);
+        }
+    };
+
+    var loadContent = function (url, containerId, $menu, $content) {
+        $menu.append('<a href="#' + containerId + '" id="menu_' + containerId + '"></a><br>');
+        $content.append('<div id="' + containerId + '" class="section"></div>');
+
+        $.get(url, function(data) {
+            var i = data.indexOf('===') - 1;
+            var name = data.substr(0, i);
+            var html = md.render(data);
+            console.log(containerId, name);
+
+            $menu.find('#menu_' + containerId).html(name);
+            $content.find('#' + containerId).html(html);
+        });
+    };
+
+    fill(
+        'wiki/en/',
+        [
+            'install',
+            'first_steps',
+            'interfaces',
+            'api',
+            'style'
+        ],
+        'files',
+        'Start');
+
+    fill(
+        'wiki/en/with_model/',
+        [
+            'traits',
+            'prepare_list',
+            'store_update',
+            'permissions',
+            'ordered_list'
+        ],
+        'with_model',
+        'Work with model');
+
+    fill(
+        'wiki/en/setup/',
+        [
+            'column',
+            'inputs',
+            'filters',
+            'trans',
+            'module_in_popups'
+        ],
+        'setup',
+        'Setup');
+
+    fill(
+        'wiki/en/helpers/',
+        [
+            'crude_data',
+            'crude_files',
+            'crude_options',
+            'query_helper'
+        ],
+        'helpers',
+        'Helpers'
+    );
+
+    fill(
+        'wiki/en/examples/',
+        [
+            'autocomplete',
+            'ordered_list',
+            'pre_filtered_collection'
+        ],
+        'examples',
+        'Examples'
+    );
+
+</script>
+
+</html>
