@@ -1,9 +1,14 @@
-Trans
+Title and attributes names
 ===
+
+To set up title use `setTitle` in crude class construct.
+
+```
+$this->crudeSetup->setTitle('List');
+```
 
 Change default attribute names in `resources/lang/en/validation.php` files.
 
-Example:
 ```php
     'attributes' => [
         'id' => 'ID',

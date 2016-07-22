@@ -5,7 +5,7 @@ Class `CrudeQueryHelper`
 
 Methods:
 
-- `public static function join(&$query, $table, $tableKey, $tableToJoin, $tableToJoinKey)`` - join left with deleted_at check
+- `public static function join(&$query, $table, $tableKey, $tableToJoin, $tableToJoinKey)` - join left with deleted_at check
 - `public static function joinAndCount(&$query, $table, $tableKey, $tableToJoin, $tableToJoinKey, $countName = null)` - join and add count to select (default count param name is 'num_' . $tableToJoin)
 
 Example:

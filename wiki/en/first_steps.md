@@ -64,7 +64,7 @@ $table->double('lng', 17, 14);
 $table->string('address');
 ```
 
-olso in view add (with your google api key)
+also in view add (with your google api key)
 
 ```html
 <script src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}&libraries=places" async defer></script>
