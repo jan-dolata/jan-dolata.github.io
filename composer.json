@@ -1,0 +1,13 @@
+{
+    "name": "jan-dolata/jan-dolata.github.io",
+    "description": "Jan Dolata packages help page",
+    "authors": [
+        {
+            "name": "Jan Dolata",
+            "email": "j.dolata@holonglobe.com"
+        }
+    ],
+    "require": {
+        "erusev/parsedown-extra": "^0.7.1"
+    }
+}

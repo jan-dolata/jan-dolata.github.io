@@ -1,3 +1,5 @@
+[comment]: <> (Pola formularzy)
+
 ### Dostępne typy pól
 
 * text - domyślne
@@ -14,7 +16,7 @@
 
 Aby zmienić typ użyj `$this->crudeSetup->setTypes()` w `__construct` klasy crude
 
-```
+```php
 $this->crudeSetup->setTypes('first_name', 'text');
 ```
 

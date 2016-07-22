@@ -1,4 +1,4 @@
-### Instalacja
+[comment]: <> (Instalacja)
 
 Wykorzystując Composer
 
