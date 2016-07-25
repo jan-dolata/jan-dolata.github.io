@@ -17,8 +17,8 @@ Example:
 ```
 
 To add some custom action after store / update, just overwrite methods:
-- afterStore($model, $attributes)
-- afterUpdate($model, $attributes)
+- `afterStore($model, $attributes)`,
+- `afterUpdate($model, $attributes)`.
 
 To change all add or edit action, just overwrite methods:
 - `store($attributes)`,

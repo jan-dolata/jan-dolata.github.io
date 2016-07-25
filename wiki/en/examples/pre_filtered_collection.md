@@ -51,7 +51,7 @@ App\Http\Controllers\Controller
 ```php
     public function bookAuthors($book_id = null)
     {
-        \CrudeData::put('book_id', $book_id);
+        \CrudeData::put(['book_id' => $book_id]);
         return view('crude.start', [
             'crudeSetup' => [(new \App\Engine\Crude\BookAuthors)->getCrudeSetupData()]
         ]);
