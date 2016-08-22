@@ -20,6 +20,17 @@ or
 $this->crudeSetup->setCustomActions('actionName', ['title' => 'Name of Action']);
 ```
 
+or (for simple button with link)
+
+```php
+$this->crudeSetup->setCustomActions('actionName', [
+    'title' => 'Name of linked page',
+    'type' => 'link',
+    'url' => route('route_name'),
+    'attr' => 'id'
+]);
+```
+
 In crude class add method
 
 ```php
