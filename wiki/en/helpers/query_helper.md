@@ -18,8 +18,8 @@ Example:
             'authors.name as author_name'
         );
 
-    QueryHelper::join($query, 'books', 'author_id', 'authors', 'id');
-    QueryHelper::joinAndCount($query, 'books', 'id', 'reviews', 'book_id');
+    CrudeQueryHelper::join($query, 'books', 'author_id', 'authors', 'id');
+    CrudeQueryHelper::joinAndCount($query, 'books', 'id', 'reviews', 'book_id');
 
     $books = $query->get();
 
