@@ -20,17 +20,6 @@ or
 $this->crudeSetup->setCustomActions('actionName', ['title' => 'Name of Action']);
 ```
 
-or (for simple button with link)
-
-```php
-$this->crudeSetup->setCustomActions('actionName', [
-    'title' => 'Name of linked page',
-    'type' => 'link',
-    'url' => route('route_name'),
-    'attr' => 'id'
-]);
-```
-
 In crude class add method
 
 ```php
@@ -56,6 +45,17 @@ In view add action button template
 <script type="text/template" id="actionNameCustomActionButtonTemplate">
     Name of Action
 </script>
+```
+
+For simple button with link (`actionNameCustomAction` is not required)
+
+```php
+$this->crudeSetup->setCustomActions('actionName', [
+    'title' => 'Name of linked page',
+    'type' => 'link',
+    'url' => route('route_name'),
+    'attr' => 'id'
+]);
 ```
 
 ### Example:
