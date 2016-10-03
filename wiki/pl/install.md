@@ -1,22 +1,23 @@
-[comment]: <> (Instalacja)
+Instalacja
+===
 
-Wykorzystując Composer
+Przez Composer
 
-```
+``` bash
 $ composer require jan-dolata/crude-crud
 ```
 
-Dodaj ServiceProvider do `config/app`.
+Dodaj ServiceProvider w `config/app`.
 
 ```
 JanDolata\CrudeCRUD\CrudeCRUDServiceProvider::class
 ```
 
-Opublikuj i uruchom migracje
+Opublikuj i wykonaj migracje
 
 ``` bash
 $ php artisan vendor:publish --provider="JanDolata\CrudeCRUD\CrudeCRUDServiceProvider"
 $ php artisan migrate
 ```
 
-Przejdź i popraw `config/crude.php`.
+Sprawdź ustawienia w pliku konfiguracyjnym `config/crude.php`.
