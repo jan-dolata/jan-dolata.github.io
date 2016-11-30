@@ -115,7 +115,7 @@ $this->crudeSetup
 
 Default options
 
-```
+```php
 'language' => 'pl',
 'format' => 'YYYY-MM-DD hh:mm:00',
 'pickerPosition' => "bottom-left",
