@@ -80,3 +80,31 @@ public function labelAttrName($id)
     return empty($label) ? '' : $label;
 }
 ```
+
+Dla pól z typem `datetime` możesz dodać opcje
+
+```php
+$this->crudeSetup
+    ->setDateTimePickerOptions('format', 'YYYY-MM-DD');
+// lub
+$this->crudeSetup
+    ->setSelectOptions([
+        'format' => 'YYYY-MM-DD',
+        'defaultDate' => '2016-11-30'
+    ]);
+```
+
+Domyślne ustwaienia to
+
+```
+'language' => 'pl',
+'format' => 'YYYY-MM-DD hh:mm:00',
+'pickerPosition' => "bottom-left",
+'pickSeconds' => true,
+'icons' => [
+    'time'  => "fa fa-clock-o",
+    'date'  => "fa fa-calendar",
+    'up'    => "fa fa-arrow-up",
+    'down'  => "fa fa-arrow-down"
+]
+```

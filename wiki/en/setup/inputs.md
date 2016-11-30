@@ -100,3 +100,30 @@ public function labelAttrName($id)
 }
 ```
 
+For `datetime` add options
+
+```php
+$this->crudeSetup
+    ->setDateTimePickerOptions('format', 'YYYY-MM-DD');
+// or
+$this->crudeSetup
+    ->setSelectOptions([
+        'format' => 'YYYY-MM-DD',
+        'defaultDate' => '2016-11-30'
+    ]);
+```
+
+Default options
+
+```
+'language' => 'pl',
+'format' => 'YYYY-MM-DD hh:mm:00',
+'pickerPosition' => "bottom-left",
+'pickSeconds' => true,
+'icons' => [
+    'time'  => "fa fa-clock-o",
+    'date'  => "fa fa-calendar",
+    'up'    => "fa fa-arrow-up",
+    'down'  => "fa fa-arrow-down"
+]
+```
