@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
-    <link rel="stylesheet" href="docs/bootstrap.css">
+    <link rel="stylesheet" href="docs/lib/bootstrap.css">
+    <script src="docs/lib/jquery.js"></script>
+    <script src="docs/lib/bootstrap.js"></script>
+    <script src="docs/lib/markdown-it.min.js"></script>
+    <script src="docs/lib/js-markdown-extra.js"></script>
 
-    <script src="docs/jquery.js"></script>
-    <script src="docs/bootstrap.js"></script>
-    <script src="docs/markdown-it.min.js"></script>
-    <script src="docs/js-markdown-extra.js"></script>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="docs/style.css">
+    <script src="docs/helpers.js"></script>
 </head>
 
 <body>
@@ -42,36 +42,6 @@
 </body>
 
 <script type="text/javascript">
-    var md = window.markdownit();
-
-    var fill = function (dir, files, id, name) {
-        $('#menu').append('<strong>' + name + ':</strong><div id="menu_' + id + '"></div><hr>');
-        $('#content').append('<h2 style="margin-top: 60px">' + name + ':</h2><div id="content_' + id + '"></div>');
-
-        var $menu = $('#menu').find('#menu_' + id);
-        var $content = $('#content').find('#content_' + id);
-
-        for (var i in files) {
-            var url = dir + files[i] + '.md';
-
-            loadContent(url, id + '_' + files[i], $menu, $content);
-        }
-    };
-
-    var loadContent = function (url, containerId, $menu, $content) {
-        $menu.append('<a href="#' + containerId + '" id="menu_' + containerId + '"></a><br>');
-        $content.append('<div id="' + containerId + '" class="section"></div>');
-
-        $.get(url, function(data) {
-            var i = data.indexOf('===') - 1;
-            var name = data.substr(0, i);
-            var html = md.render(data);
-            console.log(containerId, name);
-
-            $menu.find('#menu_' + containerId).html(name);
-            $content.find('#' + containerId).html(html);
-        });
-    };
 
     fill(
         'wiki/en/',
