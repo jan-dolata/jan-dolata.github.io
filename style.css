@@ -67,6 +67,12 @@ hr {
     padding-right: 20px;
 }
 
+.icon {
+    width: 100px;
+    height: 100;
+    box-shadow: none;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
