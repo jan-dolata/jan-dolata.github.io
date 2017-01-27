@@ -10,6 +10,7 @@ To change style prepare css with classes:
     + crude-box
         + crude-header
             + crude-header-title
+            + crude-header-description
             + crude-module
             + crude-alert-container
                 + crude-alert
@@ -40,5 +41,3 @@ To change style prepare css with classes:
 !!! Place new template before `@include('CrudeCRUD::start')`.
 
 To change content of any button, just overwrite one of templates `src/resources/views/action-button.blade.php`.
-
-

@@ -10,6 +10,7 @@ Aby zmienić styl, przygotuj plik css zgodny ze strukturą klas:
     + crude-box
         + crude-header
             + crude-header-title
+            + crude-header-description
             + crude-module
             + crude-alert-container
                 + crude-alert
