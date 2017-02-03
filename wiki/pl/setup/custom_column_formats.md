@@ -1,4 +1,4 @@
-Dodatkowe formatowanie kolumn tabeli
+Dodatkowe formatowanie kolumn
 ===
 
 W konstruktorze klasy dodaj `setColumnFormat` z nazwą dla nowego szablonu z formatowaniem komórki.

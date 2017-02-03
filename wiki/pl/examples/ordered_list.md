@@ -4,15 +4,15 @@ Ordered list
 Part of create books table migration
 
 ```php
-    public function up()
-    {
-        Schema::create('books', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('tile');
-            $table->integer('order');
-            $table->timestamps();
-        });
-    }
+public function up()
+{
+    Schema::create('books', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('tile');
+        $table->integer('order');
+        $table->timestamps();
+    });
+}
 ```
 
 Book Model

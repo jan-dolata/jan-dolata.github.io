@@ -9,8 +9,8 @@ Aby dodać filtr należy wywołać metodę `setRichFilters`:
 
 ```php
 $this->crudeSetup
-    ->setRichFilters('nazwaFiltra', 'Etykieta', 'typInputa');
-    // gdzie 'typInputa' jest opcjonalne, domyślnie 'text'
+    ->setRichFilters('nazwaFiltra', 'Etykieta', 'typFiltra', $opcjeFiltra);
+    // gdzie 'typFiltra' jest opcjonalne, domyślnie input type='text'
 ```
 
 Możliwe jest też zdefiniowanie kilku filtrów jednocześnie
@@ -18,14 +18,22 @@ Możliwe jest też zdefiniowanie kilku filtrów jednocześnie
 ```php
 $this->crudeSetup
     ->setRichFilters([
-        ['nazwaFiltra1', 'Etykieta1', 'typInputa1'],
+        ['nazwaFiltra1', 'Etykieta1', 'typFiltra1'],
         ['nazwaFiltra2', 'Etykieta2'],
-        ['nazwaFiltra3', 'Etykieta3', 'typInputa3'],
+        ['nazwaFiltra3', 'Etykieta3', 'typFiltra3', $opcjeFiltra3],
         ...
     ]);
 ```
 
 *Uwaga: wywołanie `setRichFilters` ukrywa "proste" filtry pod listą, można je odkryć wywołując `$this->crudeSetup->showFilters()`.*
+
+---
+
+Typy filtrów:
+* text (domyślna wartość) - input type='text'
+* number - input type='number'
+* datetime - input z datetimepicker, w opcjach można zdefiniować parametry datepickera, np: format
+* select - select, w opcjach należy przekazać listę opcji [['id' => 1, 'label' => 'etykieta 1', ... ]] (podobnie jak przy `setSelectOptions`)
 
 ---
 

@@ -1,4 +1,4 @@
-Formatowanie kolumn tabeli
+Formatowanie kolumn
 ===
 
 ## Typy

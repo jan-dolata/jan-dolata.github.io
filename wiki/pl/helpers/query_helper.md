@@ -11,18 +11,18 @@ Metody:
 Przykłady:
 
 ```php
-    $query = (new Book)
-        ->select(
-            'books.id',
-            'books.title',
-            'authors.name as author_name'
-        );
+$query = (new Book)
+    ->select(
+        'books.id',
+        'books.title',
+        'authors.name as author_name'
+    );
 
-    CrudeQueryHelper::join($query, 'books', 'author_id', 'authors', 'id');
-    CrudeQueryHelper::joinAndCount($query, 'books', 'id', 'reviews', 'book_id');
+CrudeQueryHelper::join($query, 'books', 'author_id', 'authors', 'id');
+CrudeQueryHelper::joinAndCount($query, 'books', 'id', 'reviews', 'book_id');
 
-    $books = $query->get();
+$books = $query->get();
 
-    // models in $books collection, have 4 attributes
-    // id, title, author_name, num_reviews
+// models in $books collection, have 4 attributes
+// id, title, author_name, num_reviews
 ```
