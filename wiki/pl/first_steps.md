@@ -49,28 +49,6 @@ To działa!
 
 ---
 
-Jeśli elementy listy mają zawierać kolekcję zewnętrznych plik,
-w migracji modelu dodaj
-
-```php
-$table->text('files');
-```
-
-Jeżeli elementy listy mają posiadać lokalizację na mapie,
-w migracji dodaj
-
-```php
-$table->double('lat', 17, 14);
-$table->double('lng', 17, 14);
-$table->string('address');
-```
-
-a do widoku wklej poniższy kod (wraz z twoim kluczem do api google)
-
-```html
-<script src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}&libraries=places" async defer></script>
-```
-
 Ustaw nazwy atrybutów w pliku `resources/lang/en/validation.php`
 
 ```php
@@ -102,7 +80,7 @@ $this->setValidationRules([
 
 Do uruchomienia akcji dodawania nowego elementu listy, wystarczy dodać interface `CrudeStoreInterface`. Aby umożliwić edycję, dodaj interface `CrudeUpdateInterface`. A w przypadku usuwania, interface `CrudeDeleteInterface`. Potrzebne metody znajdują się w trait `CrudeFromModelTrait`. Więcej w odpowiednich fragmentach tej dokumentacji.
 
-Dodaj qwerę do ładowania danych listy
+Dodaj kwerę do ładowania danych listy
 
 ```php
 public function prepareQuery()

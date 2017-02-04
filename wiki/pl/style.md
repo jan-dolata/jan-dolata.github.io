@@ -38,6 +38,6 @@ Aby zmienić styl, przygotuj plik css zgodny ze strukturą klas:
 
 ## Szablony (Templates)
 
-!!! Uwaga: umieść nowe szablony przed wywołaniem `@include('CrudeCRUD::start')`.
+*!!! Uwaga: umieść nowe szablony przed wywołaniem `@include('CrudeCRUD::start')`.*
 
 Aby zmienić zawartość dowolnego przycisku, wystarczy nadpisać odpowiedni szablon z `src/resources/views/action-button.blade.php`.
