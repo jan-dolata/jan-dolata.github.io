@@ -42,11 +42,10 @@ class BooksList extends \Crude implements \CRUDInterface, \CrudeOrderInterface
 
     public function __construct()
     {
-        $this->setModel(new \App\Models\Book);
+        $this
+            ->setModel(new \App\Models\Book)
+            ->prepareCrudeSetup()
 
-        $this->prepareCrudeSetup();
-
-        $this->crudeSetup
             ->setTitle('List of books')
             ->setTrans([
                 'id' => 'Id',
@@ -115,11 +114,9 @@ class BooksList extends \Crude implements \CRUDInterface, \CrudeOrderInterface
 
     public function __construct()
     {
-        $this->setModel(new \App\Models\Book);
-
-        $this->prepareCrudeSetup();
-
-        $this->crudeSetup
+        $this
+            ->setModel(new \App\Models\Book)
+            ->prepareCrudeSetup()
             ->setTitle('List of books')
             ->setTrans(['id' => 'Id', 'title' => 'Title', 'order' => '#'])
             ->setColumnFormat('title', 'longtext');

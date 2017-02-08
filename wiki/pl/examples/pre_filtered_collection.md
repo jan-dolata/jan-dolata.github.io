@@ -51,9 +51,10 @@ App\Http\Controllers\Controller
 ```php
     public function bookAuthors($book_id = null)
     {
-        \CrudeData::put(['book_id' => $book_id]);
         return view('crude.start', [
-            'crudeSetup' => [(new \App\Engine\Crude\BookAuthors)->getCrudeSetupData()]
+            'crudeSetup' => [
+                \CrudeMagic::view('BookAuthors', 'bookId', $book_id)
+            ]
         ]);
     }
 ```
@@ -63,29 +64,20 @@ App\Engine\Crude\BookAuthors
 ```php
 namespace App\Engine\Crude;
 
-use Session;
-
-class BookAuthors extends \Crude implements
-    \CrudeListInterface,
-    \CrudeStoreInterface,
-    \CrudeUpdateInterface,
-    \CrudeDeleteInterface,
-    \CrudeWithValidationInterface
+class BookAuthors extends \Crude implements \CrudeCRUDWithValidationInterface
 {
     use \CrudeFromModelTrait;
     use \CrudeWithValidationTrait;
 
-    protected $book_id = null;
+    protected $bookId = null;
 
     public function __construct()
     {
-        $this->book_id = \CrudeData::get('book_id');
+        $this->bookId = $this->getCrudeData('bookId');
 
-        $this->setModel(new \App\Engine\Models\BookAuthor);
-
-        $this->prepareCrudeSetup();
-
-        $this->crudeSetup
+        $this
+            ->setModel(new \App\Engine\Models\BookAuthor)
+            ->prepareCrudeSetup()
             ->setTitle('Book authors list')
             ->setTypesGroup('autocomplete', ['book_id', 'author_id'])
             ->setColumn(['id', 'book_name', 'author_name'])
@@ -93,10 +85,10 @@ class BookAuthors extends \Crude implements
             // ->setAddAndEditForm(['book_id', 'author_id'])
             ;
 
-        if ($this->book_id)
+        if ($this->bookId)
             $this->crudeSetup
                 ->setColumn(['id', 'author_name'])
-                ->setModelDefaults('book_id', $this->book_id)
+                ->setModelDefaults('book_id', $this->bookId)
                 ->setAddAndEditForm(['author_id'])
                 ;
 
@@ -119,8 +111,8 @@ class BookAuthors extends \Crude implements
                 'authors.name as author_name'
             );
 
-        if ($this->book_id)
-            $query->where('book_authors.book_id', $this->book_id);
+        if ($this->bookId)
+            $query->where('book_authors.book_id', $this->bookId);
 
         return $query;
     }
