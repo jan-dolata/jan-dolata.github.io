@@ -9,17 +9,21 @@ W widoku z listą wklej poniższy kod (wraz z twoim kluczem do api google)
 <script src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}&libraries=places" async defer></script>
 ```
 
-Tabela bazy powiązana z modelem powinna zawierać trzy kolumny.
+Tabela bazy powiązana z modelem powinna zawierać kolumny `map_lat` i `map_lng`:
 
 ```php
 // fragment migracji
-$table->double('lat', 17, 14);
-$table->double('lng', 17, 14);
-$table->string('address');
+$table->double('map_lat', 17, 14);
+$table->double('map_lng', 17, 14);
+// opcjonalne
+$table->string('map_address');
+$table->string('map_province');
+$table->string('map_locality');
+$table->string('map_postal_code');
 ```
 
-Po wykryciu wskazanych kolumn, automatycznie:
-* pole `lat`, `lng`, `address` zostanie usunięte z formularza edycji i dodawania,
+Po wykryciu kolumn `map_lat` i `map_lng`, automatycznie:
+* pole `map_lat`, `map_lng`, `map_address`, `map_province`, `map_locality`, `map_postal_code` zostanie usunięte z formularza edycji i dodawania,
 * zostanie włączony moduł z mapą umożliwiający wybranie lokalizacji (zawiera wyszukiwarkę),
 * w akcjach po prawej stronie wiersza listy, dodana zostanie ikona otwierania modułu,
-* w domyślnych wartościach modelu znajdą się wartości z `mapDefaults` ustawione w `config/crude.php`.
+* w razie braku markera, mapa będzie centrowana w punkcie definiowanym w `mapCenter` w `config/crude.php`.

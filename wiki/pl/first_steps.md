@@ -11,23 +11,17 @@ W katalogu `app/Engine/Crude` dodaj klasę definiującą nowa listę
 
 namespace App\Engine\Crude;
 
-use Crude;
-use CrudeListInterface;
-use CrudeFromModelTrait;
+class ListName extends \Crude implements \CrudeCRUDInterface {
 
-class ListName extends Crude implements
-    CrudeListInterface
-{
-
-    use CrudeFromModelTrait;
+    use \CrudeFromModelTrait;
 
     public function __construct()
     {
-        $this->setModel(new \App\Engine\Models\ModelName);
-
-        $this->prepareCrudeSetup();
+        $this
+            ->setModel(new \App\Engine\Models\ModelName)
+            ->prepareCrudeSetup()
+            ->setTitle('List Name');
     }
-
 }
 ```
 
@@ -35,7 +29,7 @@ W akcji w kontrolerze dodaj
 
 ```php
 return view('viewName', [
-    'crudeSetup' => [(new \App\Engine\Crude\ListName)->getCrudeSetupData()]
+    'crudeSetup' => [\CrudeMagic::view('ListName')]
 ]);
 ```
 

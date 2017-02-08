@@ -18,10 +18,6 @@ $table->text('thumbnail')->nullable();
 
 W  `$casts` modelu powinno znaleźć się `'thumbnail' => array`.
 
-W ` CrudeWithThumbnailTrait` znajdują się dwie metody do zmiany domyślnych rozmiarów miniatur (domyślnie 300x300):
-* `setThumbnailWidth($width)`
-* `setThumbnailHeight($height)`
-
 ---
 
 Metoda `setThumbnailAction` wyświetla ikonę i moduł dodawania i edycji miniatur
@@ -29,12 +25,17 @@ Metoda `setThumbnailAction` wyświetla ikonę i moduł dodawania i edycji miniat
 $this->crudeSetup->setThumbnailAction();
 ```
 
-Metoda `setThumbnailColumns` umożliwia ustawienie nazw kolumn przetrzymujących miniatury,
+Metoda `setThumbnailColumns` umożliwia ustawienie nazw kolumn przetrzymujących miniatury i ich rozmiarów (domyślnie 300 x 300),
 
 ```php
-$this->crudeSetup->setThumbnailColumns('nazwa_kolumny');
+$this->crudeSetup->setThumbnailColumns('miniatura_300_300');
 \\ lub
-$this->crudeSetup->setThumbnailColumns(['nazwa_kolumny_1', 'nazwa_kolumny_2']);
+$this->crudeSetup->setThumbnailColumns(['miniatura_2_300_300', 'miniatura_3_300_300']);
+\\ lub
+$this->crudeSetup->setThumbnailColumns([
+    'miniatura_4_300_300',
+    ['miniatura_5_100_200', 100, 200]
+]);
 ```
 
 Domyślną wartością jest `thumbnail`. Wywołanie metody nadpisuje wcześniejsze wartości.

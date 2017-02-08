@@ -18,9 +18,10 @@ Możliwe jest też zdefiniowanie kilku filtrów jednocześnie
 ```php
 $this->crudeSetup
     ->setRichFilters([
-        ['nazwaFiltra1', 'Etykieta1', 'typFiltra1'],
-        ['nazwaFiltra2', 'Etykieta2'],
-        ['nazwaFiltra3', 'Etykieta3', 'typFiltra3', $opcjeFiltra3],
+        'nazwaFiltra1',
+        ['nazwaFiltra2', 'Etykieta2', 'typFiltra2'],
+        ['nazwaFiltra3', 'Etykieta3'],
+        ['nazwaFiltra4', 'Etykieta4', 'typFiltra4', $opcjeFiltra4],
         ...
     ]);
 ```

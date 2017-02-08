@@ -3,30 +3,46 @@ Data
 
 Klasa `CrudeData`
 
-Klasa zawiera metody do przyjmowania i zwracania danych. Dane zapisywane są w sesji. Przy każdym przekazaniu nowych wartości, stare dane są czyszczone.
+Klasa zawiera metody do przyjmowania i zwracania danych. Dane zapisywane są w sesji.
 
 Metody:
 
-- `public static function put(array $data)`
-- `public static function get($attr = null)`
+- `public static function put($crudeName, $attr, $value = null)`
+- `public static function get($crudeName, $attr = null)`
 
 Przykład:
 
 ```php
-CrudeData::put([
+CrudeData::put('Lista', 'attr', 'value');
+
+CrudeData::put('Lista', [
     'attr_1' => 'value_1',
     'attr_2' => 'value_2'
 ]);
 
-CrudeData::get(); // => ['attr_1' => 'value_1', 'attr_2' => 'value_2']
+CrudeData::get('Lista'); // => ['attr' => 'value', 'attr_1' => 'value_1', 'attr_2' => 'value_2']
 
-CrudeData::get('attr_1'); // => 'value_1'
+CrudeData::get('Lista', 'attr_1'); // => 'value_1'
 
 CrudeData::get('attr_3'); // => null
+```
 
-CrudeData::put([
-    'attr_2' => 'value_2'
-]);
+---
 
-CrudeData::get() // => ['attr_2' => 'value_2']
+W klasie `Crude` znajdziesz pomocniczą metodę `getCrudeData($attr = null)`.
+
+```php
+class Lista extends \Crude implements \CrudeListInterface {
+
+    use \CrudeFromModelTrait;
+
+    public function __construct()
+    {
+        ...
+
+        $this->getCrudeData('attr'); // => 'value'
+
+        ...
+    }
+}
 ```

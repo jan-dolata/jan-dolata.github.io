@@ -51,6 +51,7 @@ Domyślne wartości (pl):
     'delete' => 'Usuń',
     'add' => 'Dodaj',
     'close' => 'Zamknij',
+    'clear' => 'Wyczyść',
     'submit' => 'Zatwierdź',
     'empty_list' => 'Lista jest pusta',
     'tools' => 'Narzędzia',
