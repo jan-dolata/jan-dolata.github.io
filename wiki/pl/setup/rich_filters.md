@@ -30,6 +30,12 @@ $this->crudeSetup
 
 ---
 
+Od v1.1.6 filtry są domyślnie ukryte. W prawym górnym rogu pojawi się lista, w której możemy wybrać który filtr ma zostać pokazany.
+
+Wartości filtrów trafiają do # adresu url. Po załadowaniu takiego adresu, wszystkie wskazane filtry zostaną odkryte i wypełnione, a lista odpowiednio przefiltrowana.
+
+---
+
 Typy filtrów:
 * text (domyślna wartość) - input type='text'
 * number - input type='number'
