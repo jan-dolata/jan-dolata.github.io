@@ -31,9 +31,10 @@ Gdzie `routePrefix` pobierane jest z `config/crude.php`.
 W widokach korzystaj z partial'i:
 * `@include('CrudeCRUD::special-files.download-btn', ['file' => $file])` - wyświetla ikonę z linkiem do pobrania pliku lub znak blokady gdy brakuje pliku;
 * `@include('CrudeCRUD::special-files.label-with-info', ['file' => $file])` - wyświetla nazwę z danymi o pliku;
-* `@include('CrudeCRUD::special-files.upload-form', ['key' => 'nazwa_pliku'])` - formularz do dodawania pliku.
-Gdzie `$file` jest elementem listy z `getList()`;
+* `@include('CrudeCRUD::special-files.upload-form', ['key' => 'nazwa_pliku'])` - formularz do dodawania pliku;
 * `@include('CrudeCRUD::special-files.list')` - zbiera powyższe partial'e, wyświetla kompletną listę plików, nie wymaga przekazywania żadnych danych.
+
+Gdzie `$file` jest elementem listy z `getList()`.
 
 ---
 
