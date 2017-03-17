@@ -11,7 +11,9 @@ Inputy (pola formularza)
 * datetime - wykorzystuje bootstrap-datetimepicker
 * autocomplete - wykorzystuje jquery-ui
 * select
+* multiselect - select z możliwością wybrania wielu opcji
 * selectize - wykorzystuje selectize, select z opcją autouzupełniania
+* multiselectize - wykorzystuje selectize, select z autouzupełnianiem i możliwością wyboru wielu opcji
 * json
 * markdown - pod polem wyświetla się podgląd
 
