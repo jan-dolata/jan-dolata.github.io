@@ -9,6 +9,7 @@ Formatowanie kolumn
 * bool - Tak / Nie
 * files - lista plików
 * status - kolorowa etykieta ze wskazaną opcją
+* number
 
 ## Ustawienia
 
@@ -20,7 +21,8 @@ $this->crudeSetup->setColumnFormat('first_name', 'longtext');
 $this->crudeSetup->setColumnFormat([
     'first_name' => 'longtext',
     'last_name' => 'longtext',
-    'is_admin' => 'bool'
+    'is_admin' => 'bool',
+    'points' => 'number'
 ]);
 // lub
 $this->crudeSetup->setColumnFormat([
