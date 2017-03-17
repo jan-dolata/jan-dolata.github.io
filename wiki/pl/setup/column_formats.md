@@ -8,6 +8,7 @@ Formatowanie kolumn
 * link
 * bool - Tak / Nie
 * files - lista plików
+* status - kolorowa etykieta ze wskazaną opcją
 
 ## Ustawienia
 
