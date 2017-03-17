@@ -3,7 +3,7 @@ Options
 
 Abstrakcyjna klasa `CrudeOptions`
 
-Klasa pomaga zarządzać opcjami w listach wyboru formularzy (typ select).
+Klasa pomaga zarządzać opcjami w listach wyboru formularzy (typ select), oraz przy wyświetlaniu statusów.
 
 Metody:
 
@@ -23,6 +23,15 @@ class BookType extends \CrudeOptions
     const TYPE_DRAMA = 'drama';
     const TYPE_COMEDY = 'comedy';
     const TYPE_HORROR = 'horror';
+
+    // opcjonalne,
+    // wykorzystywane przy formatowaniu kolumny stylem 'status'
+    // domyślne wartości {'#92C9E3', '#FFE5A0', '#9CA5E7', '#FFD3A0'}
+    protected $colors = [
+        'drama' => '#abc',
+        'comedy' => '#cba',
+        'horror' => '#bca'
+    ];
 }
 ```
 
@@ -44,15 +53,18 @@ Rezultat `BookType::getOptions()`
 [
     [
         'id' => 'drama',
-        'label' => 'Drama'
+        'label' => 'Drama',
+        'color' => '#abc'
     ],
     [
         'id' => 'comedy',
-        'label' => 'Comedy'
+        'label' => 'Comedy',
+        'color' => '#cba'
     ],
     [
         'id' => 'horror',
-        'label' => 'Horror, S-F'
+        'label' => 'Horror, S-F',
+        'color' => '#bca'
     ]
 ]
 ```

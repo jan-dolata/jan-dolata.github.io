@@ -11,7 +11,7 @@ Formatowanie kolumn
 
 ## Ustawienia
 
-Do zmiany formatowania kolumny służy metoda `$this→crudeSetup→setColumnFormat()`, którą powinieneś wykorzystać w konstruktorze.
+Do zmiany formatowania kolumny służy metoda `$this->crudeSetup->setColumnFormat()`, którą powinieneś wykorzystać w konstruktorze.
 
 ```php
 $this->crudeSetup->setColumnFormat('first_name', 'longtext');
@@ -22,11 +22,31 @@ $this->crudeSetup->setColumnFormat([
     'is_admin' => 'bool'
 ]);
 // lub
-->setColumnFormat([
+$this->crudeSetup->setColumnFormat([
     'first_name' => [
         'type' => 'link',
         'url' => route('user_profile'),  // url
         'attr' => 'id'                   // atrybut modelu doklejany na końcu adresu
+    ],
+    'task_status' => [
+        'type' => 'status',
+        'options' => [                   // zobacz 'Metody pomocnicze / Options'
+            [
+                'id' => 'new',
+                'label' => 'Nowy',
+                'color' => '#abcabc'
+            ],
+            [
+                'id' => 'accepted',
+                'label' => 'Zaakceptowane',
+                'color' => '#bcdbcd'
+            ],
+            [
+                'id' => 'rejected',
+                'label' => 'Odrzucone',
+                'color' => '#cdecde'
+            ]
+        ]
     ]
 ])
 ```
