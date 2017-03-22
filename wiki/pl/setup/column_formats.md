@@ -3,13 +3,22 @@ Formatowanie kolumn
 
 ## Typy
 
-* text - domyślny - 20 znaków dla string’ów lub liczba elementów dla tablic
-* longtext - wyświetla pełny tekst dla string’ów
-* link
-* bool - Tak / Nie
-* files - lista plików
-* status - kolorowa etykieta ze wskazaną opcją
-* number
+* **default** - domyślny, rozpoznaje typ danych:
+    + email - **mailto**
+    + link - **href**
+    + tekst - **text**
+    + tablica - **object**
+* **mailto** - link typu mailto
+* **href** - zwykły link
+* **text** - skraca tekst do 20 znaków, całość w podglądzie po kliku,
+* **longtext** - wyświetla pełny tekst
+* **object** - wyświetla początek tablicy (20 znaków), reszta w podglądzie po kliku,
+* **link** - generuje link na podstawie podanego url i atrybutu,
+* **bool** - Tak / Nie
+* **files** - lista plików z możliwością pobrania (domyślne dla pola `files`),
+* **status** - kolorowa etykieta ze wskazaną opcją,
+* **number** - formatuje liczby (1 234 567.89)
+* **integer** - formatuje liczby (1 234 567)
 
 ## Ustawienia
 
